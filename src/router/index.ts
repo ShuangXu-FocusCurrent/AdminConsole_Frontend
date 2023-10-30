@@ -7,7 +7,28 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      children:[
+        {
+          path: "goods",
+          name: 'goods',
+          meta:{
+            isShow:true,
+            title:"Goods List"
+          },
+          component: () => import('../views/GoodsListView.vue')
+        },
+        {
+          path: "users",
+          name: 'users',
+          meta:{
+            isShow:true,
+            title:"Users Lists"
+          },
+          component: () => import('../views/UserListView.vue')
+      }
+      ]
+      
     },
     {
       path: '/about',
